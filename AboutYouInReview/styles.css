@@ -1,0 +1,13 @@
+html {
+    background-color: dimgray;
+}
+
+.oddSection {
+    width: 80%;
+    background-color: limegreen;
+}
+
+.evenSection {
+    width: 90%;
+    background-color: lightblue;
+}
