@@ -1,13 +1,71 @@
-html {
-    background-color: dimgray;
-}
+/****[READ ME]*****************
+* NAME: Dylan Buehler
+* CLASS/SECTION: CIS-131-102
+* DATE: 8/21/2019
+* FILENAME: styles.css
+*******************************/
+* {margin: 0px;}
+
+#container {
+    background-color: white;
+    text-align: center;
+}/*End html*/
 
 .oddSection {
+    margin: auto;
     width: 80%;
-    background-color: limegreen;
-}
+    background-color: lightblue;
+    font-family: "Times New Roman", Times, serif;
+    border-radius: 25px;
+}/*End .oddSection*/
 
 .evenSection {
+    margin: auto;
     width: 90%;
-    background-color: lightblue;
+    background-color: dimgray;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 25px;
+}/*End .evenSection*/
+
+h1.evenSection {
+    font-size: 1.5em;
+}
+
+nav {
+    font-style: italic;
+}
+
+a {text-decoration: none;}
+
+/* unvisited link */
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    color: red;
+}
+
+/* selected link */
+a:active {
+    color: red;
+}
+
+img {
+    position: relative;
+    border-radius: 25px;
+}
+
+.imgLeft {
+    float: left;
+}
+
+.imgRight {
+    float: right;
 }
