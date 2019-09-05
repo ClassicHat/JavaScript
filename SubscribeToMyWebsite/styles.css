@@ -1,0 +1,42 @@
+/****[ READ ME ]********************
+ * NAME: Dylan Buehler
+ * DATE: 9/5/2019
+ * FILENAME: styles.css
+ * CLASS: CIS-131-102
+ ***********************************/
+*{margin: 0px;}
+
+body{
+    /*Background generated using this site: https://cssgradient.io/ */
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+.header{
+    background-color: dimgray;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    margin: auto;
+    width: 90%;
+    padding: 25px;
+}
+
+.middle{
+    background-color: lawngreen;
+    margin: auto;
+    width: 85%;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 25px;
+}
+
+#showInput{
+    background-color: dimgray;
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+    margin: auto;
+    width: 90%;
+    padding: 25px;
+}

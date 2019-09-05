@@ -1,3 +1,9 @@
+<!-- READ ME --------------------
+- NAME: Dylan Buehler
+- DATE: 9/5/2019
+- FILENAME: index.html
+- CLASS: CIS-131-102
+--------------------------------->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,51 +11,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Subscribe To My Webpage</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!-- Create links to my external style and javascrip pages -->
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="jumbotron">
-          <h1>Subscribe To My Amazing Webpage</h1> 
-          <p>This form will ask for your name, email, and contact preference.</p> 
-        </div>
+    <div class="header">
+        <h1>Subscribe To My Amazing Webpage</h1> 
+        <p>This form will ask for your first name, last name, and contact preference.</p> 
     </div>
 
-    <form class="form-horizontal" action="/action_page.php">
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="email">Email:</label>
-          <div class="col-sm-10">
-            <input type="email" class="form-control" id="email" placeholder="Enter email">
-          </div>
-        </div>
+    <div class="middle">
+      <form>
+        <!-- Creates a text box for input -->
+        First Name: <input type="text" id="theFirstName">
+        Last Name: <input type="text" id="theLastName">
 
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="pwd">Password:</label>
-          <div class="col-sm-10"> 
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password">
-          </div>
-        </div>
-        <div class="form-group">
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">JavaScript</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="form-group"> 
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Submit</button>
-          </div>
-        </div>
-    </form>
+        <!-- Creates a drop down for a selection of choices -->
+        Prefered Contact: <select id="thePrefCon">
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="discord">Discord</option>
+        </select>
+
+        <!-- Creates a space for my button -->
+        <p><br></p>
+
+        <!-- Creates a button with a onclick event -->
+        <button onclick="displayInfo()" type="button">Subscribe</button>
+
+      </form>
+    </div>
+
+    <!-- Used to show the user their answers -->
+    <div id="showInput"></div>
 
 </body>
 </html>
