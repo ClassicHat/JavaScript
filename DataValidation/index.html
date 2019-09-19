@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data Validation</title>
+</head>
+<body>
+    <h1>Data Validation</h1>
+
+    <div id="theTimer">
+
+    </div>
+
+    <form action="thankyou.html" method="get">
+        <div>
+            <!-- textbox for the users name -->
+            <p>Enter your name:</p>
+            <input type="text" name="userName">
+        </div>
+        
+        <div>
+            <!-- textbox for the users email address -->
+            <p>Enter your email:</p>
+            <input type="email" name="emailAddress">
+        </div>
+        
+        <div>
+            <!-- textbox for the users phone number -->
+            <p>Enter your phone number:</p>
+            <input type="text" name="phoneNum">
+        </div>
+
+        <div>
+            <select name="quantity" id="qty"></select>
+        </div>
+
+        <div id="dropDownProd">
+
+        </div>
+        
+
+
+        <!-- <input type="button" value="Validate" onclick="valForm(this.form)"> -->
+        <input type="submit" value="Validate" onclick="return valForm(this.form)">
+        <div id="err"></div>
+    </form>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
