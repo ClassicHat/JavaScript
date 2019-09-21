@@ -35,12 +35,32 @@ function printQuery(){
 }
 
 //create the drop down for the quantity
-document.getElementById('qty') = createQty();
+document.getElementById('qty').innerHTML = createQty();
 
 function createQty(){
+    //variables
+    var theString;
 
-
-    for(var i = 1; i < 6; i++){
-
+    for(var i = 0; i < 6; i++){
+        theString += `<option value='${i}'>${i}</option>`;
     }
+    
+    return theString;
+}
+
+//Create the dropdown for the item to purchase
+var itemArray = ['Toy Car', 'Toy Tank', 'Toy Train', 'Toy Boat', 'Toy House'];
+
+document.getElementById('itemPurch').innerHTML = createItems();
+
+function createItems(){
+    //variables
+    var theString;
+
+    for(var i = 0; i < itemArray.length; i++)
+    {
+        theString += `<option value='${itemArray[i]}'>${itemArray[i]}</option>`;
+    }
+
+    return theString;
 }
