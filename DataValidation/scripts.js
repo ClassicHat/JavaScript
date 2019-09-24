@@ -39,7 +39,7 @@ document.getElementById('qty').innerHTML = createQty();
 
 function createQty(){
     //variables
-    var theString;
+    var theString = "";
 
     for(var i = 0; i < 6; i++){
         theString += `<option value='${i}'>${i}</option>`;
