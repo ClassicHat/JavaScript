@@ -1,0 +1,58 @@
+/****[ READ ME]*********************
+ * Name: Dylan Buehler
+ * Date: 9/25/2019
+ * Filename: styles.css
+ * Section: CIS-131-102
+ ***********************************/
+
+*{
+    margin:0;
+}
+
+body{
+    background-color: purple;
+}
+
+#container{
+    background-color: coral;
+    display: flex;
+}
+
+.leftBox{
+    flex-grow: 1;
+    height: 100vh;
+    width: 50vh;
+    text-align: center;
+}
+
+.rightBox{
+    flex-grow: 1;
+    height: 100vh;
+    width: 50vh;
+}
+
+img{
+    height: 100%;
+}
+
+h1{
+    font-size: 5em;
+    border-bottom: 2px solid black;
+}
+
+form{
+    font-size: 1.5em;
+    text-align: right;
+    padding: 25px 25% 0px 0px;
+}
+
+#output{
+    border-top: 2px solid black;
+    font-size: 1.5em;
+    text-align: right;
+    padding: 25px 25% 0px 0px;
+}
+
+.theBtn{
+    padding-bottom: 25px;
+}

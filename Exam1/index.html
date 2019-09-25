@@ -1,0 +1,57 @@
+<!--
+    Name: Dylan Buehler
+    Date: 9/25/2019
+    Filename: index.html
+    Section: CIS-131-102
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="container">
+        <div class="leftBox">
+            <h1>Cheech's Pizza</h1>
+
+            <form id="theForm">
+                <p>Please Enter The Following Information</p>
+                Enter Your Name:
+                <input type="text" name="name" id="name">
+        
+                <br><br>
+        
+                Enter Your Phone Number:
+                <input type="text" name="phoneNum" id="phoneNum">
+        
+                <br><br>
+        
+                How Many Pizzas Do You Want To Order:
+                <select name="pizzaQty" id="pizzaQty"></select>
+        
+                <br><br>
+        
+                Type Of Pizza:
+                <select name="pizzaOption" id="pizzaOptions"></select>
+        
+                <br><br>
+            </form>
+        
+            <div class="theBtn">
+                <button id="placeOrder">Place Order</button>
+            </div>
+            
+            <div id="output"></div>
+            
+        </div>
+        <div class="rightBox">
+            <img src="pictures/pizzabackground.jpeg" alt="pizzabackground">
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
