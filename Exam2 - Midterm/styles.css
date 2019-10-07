@@ -1,0 +1,18 @@
+*{
+    margin:auto;
+}
+
+body{
+    background-image: url(thebackground.png);
+    background-color: dimgray;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+#racer1{
+    position: relative;
+}
+
+#racer2{
+    position: relative;
+}
