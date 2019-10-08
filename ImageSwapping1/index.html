@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <!-- images to swap between -->
+        <div>
+            <img src="pictures/turtle.jpg" alt="turtle" id="bigPic" width="500">
+        </div>
+
+        <img src="pictures/turtle.jpg" alt="turtle" id="turtle" width="250" onclick="document.getElementById('bigPic').src = 'pictures/turtle.jpg'">
+        <img src="pictures/lighthouse.jpg" alt="lighthouse" id="lighthouse" width="250" onclick="document.getElementById('bigPic').src = 'pictures/lighthouse.jpg'">
+        <img src="pictures/deer.jpg" alt="deer" id="deer" width="250" onclick="document.getElementById('bigPic').src = 'pictures/deer.jpg'">
+        <img src="pictures/bird.jpg" alt="bird" id="bird" width="250" onclick="document.getElementById('bigPic').src = 'pictures/bird.jpg'">
+
+        <!-- get the images to swap -->
+        <!-- <p onclick="document.getElementById('turtle').src = 'pictures/lighthouse.jpg'">Change the source</p> -->
+
+        <!-- <script>
+            window.document.write("Hello World");
+
+            var myName ="Dylan";
+
+            window.document.write("<p style='color: blue'>" + myName + "</p>");
+
+            window.console.log("someone was here");
+        </script> -->
+
+        <!-- <p onclick="alert('I got clicked!')">Click Here....</p>
+
+        <p onclick="alert(document.getElementById('turtle').src)">What is the src of the turtle?</p> -->
+
+    </body>
+</html>

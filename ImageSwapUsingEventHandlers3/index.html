@@ -1,0 +1,32 @@
+<!-- READ ME
+Name: Dylan Buehler
+Date: 9/9/2019
+Filename: index.html
+Class: CIS-131-102 Web Dev II
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        
+    </head>
+
+    <body>
+        <!-- images to swap between -->
+        <div>
+            <img src="pictures/turtle.jpg" alt="turtle" id="bigPic" width="500">
+        </div>
+
+        <img src="pictures/turtle.jpg" alt="turtle" id="sm_Pic_1" width="250" onclick="swapPic(document.getElementById('bigPic'), document.getElementById('sm_Pic_1'))">
+        <img src="pictures/lighthouse.jpg" alt="lighthouse" id="sm_Pic_2" width="250" onclick="swapPic(document.getElementById('bigPic'), document.getElementById('sm_Pic_2'))">
+        <img src="pictures/deer.jpg" alt="deer" id="sm_Pic_3" width="250" onclick="swapPic(document.getElementById('bigPic'), document.getElementById('sm_Pic_3'))">
+        <img src="pictures/bird.jpg" alt="bird" id="sm_Pic_4" width="250" onclick="swapPic(document.getElementById('bigPic'), document.getElementById('sm_Pic_4'))">
+        <!-- <img src="pictures/bird.jpg" alt="bird" id="bird" width="250" onclick="document.getElementById('bigPic').src = 'pictures/bird.jpg'"> -->
+
+        <!-- Aparently this is the correct place to put this 'The More You Know' -->
+        <script src="scripts.js"></script>
+    </body>
+</html>
