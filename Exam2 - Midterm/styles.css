@@ -16,3 +16,8 @@ body{
 #racer2{
     position: relative;
 }
+
+#display{
+    text-align: center;
+    size: 1.5em;
+}
