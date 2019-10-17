@@ -1,0 +1,71 @@
+/****[ README ]******************
+ * NAME: Dylan Buehler
+ * DATE: 10/16/2019
+ * FILENAME: styles.css
+ * CLASS: CIS-131
+ ********************************/
+
+body{
+    margin: auto;
+    display: flex;
+    background-color: dimgray;
+}
+
+h4:nth-child(odd){
+    background-color: orange;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 0px;
+}
+
+h4:nth-child(even){
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 0px;
+}
+
+p:nth-child(odd){
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 0px;
+}
+
+p:nth-child(even){
+    background-color: orange;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 0px;
+}
+
+#newcontact{
+    background-color: orange;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 0px;
+}
+
+#contacts{
+    flex-grow: 1;
+    height: 100vh;
+    width: 20vh;
+    text-align: center;
+}
+
+#moreinfo{
+    flex-grow: 1;
+    height: 100vh;
+    width: 80vh;
+    text-align: center;
+}
+
+#formcontainer{
+    background-color: white;
+    border: 5px solid orange;
+    text-align: center;
+}
+
+#submit{
+    size: 2em;
+}
