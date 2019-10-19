@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rocket Launch Project</title>
+</head>
+<body>
+    <h1>Upcomming Launches</h1>
+
+    <div id='launchDiv'></div>
+
+    <script>
+        //variable to hold the http request
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('get', 'https://launchlibrary.net/1.4/launch/next/5');
+        httpRequest.send(null);
+
+        httpRequest.onreadystatechange = aFunction;
+
+        function aFunction(){
+            if(httpRequest.readyState == 4 && httpRequest.status == 200){
+                //variable to hold the response
+                var theLaunches = httpRequest.responseText;
+                //console.log(launches);
+
+                //variable to hold the JSON
+                var jsObject = JSON.parse(theLaunches);
+                console.log(jsObject);
+
+                for(var i = 0; i < jsObject.launches.length; i++){
+                    //Create a container for each launch
+                    var sec = document.createElement('section');
+                    //Create a container for the name and date
+                    var nameDate = document.createElement('h3');
+
+                    //Creates the launch info and puts it in the nameDate holder
+                    nameDate.innerHTML = `Launch Name: ${jsObject.launches[i].name} ---- Launch Date: ${jsObject.launches[i].windowstart}`;
+
+                    //adds the launch info to the section
+                    sec.appendChild(nameDate);
+
+                    //adds the section to the div
+                    document.getElementById('launchDiv').appendChild(sec);
+                }//End for loop
+            }//End if statement
+        }//End function
+    </script>
+</body>
+</html>
