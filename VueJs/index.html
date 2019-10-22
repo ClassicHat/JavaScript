@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>My Nue Vue</h1>
+
+    <div id="app">
+        {{message}}
+        <input v-model='message'>
+        <!-- <button v-on:click = "message = 'new message'" >Change the message</button> -->
+        <button v-on:click = 'changeMessage' >Change the message</button>
+        <ul>
+            <li v-for = "todo in todoes" @click="sendMessage(todo)">{{todo}}</li>
+        </ul>
+        <button v-on:click = "addItem">Add the item in the input box</button>
+        <hr>
+        <button v-on:click = "increments">Increment Number of Clicks</button>
+        <p v-show="click > 0">Number of Clicks: {{click}}</p>
+        <p v-show="click5 > 0">Number of Clicks: {{click5}}</p>
+        <h4>Computed Properties</h4>
+        <p>Number of Clicks: {{click10}}</p>
+        <button v-on:click = "decrements">Decrease Number of Clicks</button>
+    </div>
+
+    <script>
+        var app = new Vue(
+            {
+                el: "#app",
+                data:{
+                    message: 'Hello World',
+                    todoes: ['Learn HTML', 'Learn CSS', 'Learn Javascript', 'Learn Vue'],
+                    click: 0,
+                    click5: 0
+                    
+                },
+                methods:{
+                    changeMessage(){
+                        this.message = "Message Changed From The Methods"
+                    },
+                    addItem(){
+                        this.todoes.push(this.message)
+                    },
+                    increments(){
+                        this.click++;
+                        this.click5 = this.click + 5;
+                    },
+                    decrements(){
+                        this.click--;
+                        this.click5 = this.click - 5;
+                    }
+                },
+                computed:{
+                    click10(){
+                        return this.click + 10;
+                    },
+                    
+                }
+            }
+        )
+            
+        
+    </script>
+
+</body>
+</html>

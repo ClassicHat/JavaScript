@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for='product in products' @click="calcSumTotal(product)">{{product.name}}</li>
+        </ul>
+        <div>{{productName}}</div>
+        <div>{{total}}</div>
+    </div>
+
+    <script>
+        var app = new Vue(
+            {
+                el:"#app",
+                data:{
+                    total: 0,
+                    productName: "Nothing selected yet",
+                    products: 
+                    [p1 ={
+                        name: "Mtn Dew",
+                        price: 1.00
+                    },
+                     p2 ={
+                        name: "Pepsi",
+                        price: 2.00
+                    },
+                     p3 ={
+                        name: "Coke Cola",
+                        price: 3.00
+                    },
+                     p4={
+                         name: "Dr. Pepper",
+                         price: 4.00
+                    },
+                    {
+                        name: 'That One Drink Your Friend Likes',
+                        price: 100.00
+                    }]
+                },//End Data
+                methods:{
+                    calcSumTotal(theProduct){
+                        this.total += theProduct.price;
+                        this.productName = theProduct.name;
+                    }
+                }
+            }
+        )
+    </script>
+</body>
+</html>
