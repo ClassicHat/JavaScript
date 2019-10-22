@@ -8,10 +8,10 @@
 var countdown;
 
 //different get request links
-var any5 = 'https://launchlibrary.net/1.4/launch/next/5';
-var falcon5 = 'https://launchlibrary.net/1.4/launch/Falcon';
-var launcherOne5 = 'https://launchlibrary.net/1.4/launch/LauncherOne';
-var ariane5 = 'https://launchlibrary.net/1.4/launch/Ariane';
+var any5 = 'https://launchlibrary.net/1.4/launch?next=5';
+var falcon5 = 'https://launchlibrary.net/1.4/launch?next=5&name=Falcon';
+var launcherOne5 = 'https://launchlibrary.net/1.4/launch?next=5&name=LauncherOne';
+var ariane5 = 'https://launchlibrary.net/1.4/launch?next=5&name=Ariane';
 
 //Generate a http request object
 var httpRequest = new XMLHttpRequest();
