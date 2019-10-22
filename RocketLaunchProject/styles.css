@@ -1,3 +1,9 @@
+/****[ README ]**********
+ * Name: Dylan Buehler
+ * Date: 10/22/2019
+ * Filename: styles.css
+ ************************/
+
 body{
     margin: auto;
     display: flex;
@@ -22,4 +28,16 @@ body{
 .navLink{
     padding: 10px;
     border-bottom: 5px dotted black;
+}
+
+.bigHeader{
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+#launchDiv{
+    background-color: darkgoldenrod;
+    padding: 25px;
+    border-radius: 10px;
 }

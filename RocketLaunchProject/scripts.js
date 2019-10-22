@@ -1,3 +1,12 @@
+/****[ README ]**********
+ * Name: Dylan Buehler
+ * Date: 10/22/2019
+ * Filename: scripts.js
+ ************************/
+
+//Global Variables
+var countdown;
+
 //different get request links
 var any5 = 'https://launchlibrary.net/1.4/launch/next/5';
 var falcon5 = 'https://launchlibrary.net/1.4/launch/Falcon';
@@ -6,6 +15,16 @@ var ariane5 = 'https://launchlibrary.net/1.4/launch/Ariane';
 
 //Generate a http request object
 var httpRequest = new XMLHttpRequest();
+
+//Fill the page with the general information by default
+window.addEventListener('load', function(){
+        //Generate an http request
+        httpRequest.open('get', any5);
+        httpRequest.send(null);
+        httpRequest.onreadystatechange = displayLaunches;
+
+        countdown = this.setInterval(updateCountdown, 1000);
+})//End Default load
 
 //Create a click event for each of the links
 document.getElementById('next5Launches').addEventListener('click', function(){
@@ -64,3 +83,58 @@ function displayLaunches(){
     }//End if statement
 }//End function
 
+function updateCountdown(){
+    var dateToday = new Date();
+    var dateFrom = Date.UTC(dateToday.getFullYear(),
+        dateToday.getMonth(), dateToday.getDate(),
+        dateToday.getHours(), dateToday.getMinutes(),
+        dateToday.getSeconds());
+
+    //Get the date portion of the first launch
+    //variable to hold the response
+    var theLaunches = httpRequest.responseText;
+
+    //variable to hold the JSON
+    var jsObject = JSON.parse(theLaunches);
+    console.log(jsObject);
+
+    var dateObject = new Date(jsObject.launches[0].net);
+
+    var dateTo = Date.UTC(dateObject.getFullYear(),
+        dateObject.getMonth(), dateObject.getDate(),
+        19, 0, 0); //all launches at 8:00 pm UTC
+
+    //Days
+    var daysUntill = Math.floor((dateTo - dateFrom) / 86400000);
+    document.getElementById('countdown').innerHTML = 'Time Untill Launch - ' + daysUntill;
+
+    //Hours
+    var fractionalDay = (dateTo - dateFrom) % 86400000;
+    var hoursUntill = Math.floor(fractionalDay / 3600000);
+    if(hoursUntill < 10){
+        hoursUntill = "0" + hoursUntill;
+    }//End if
+    document.getElementById('countdown').innerHTML += ':' + hoursUntill;
+
+    //Minutes
+    var fractionalHour = fractionalDay % 3600000;
+    var minutesUntill = Math.floor(fractionalHour / 60000);
+    if(minutesUntill < 10){
+        minutesUntill = "0" + minutesUntill;
+    }
+
+    document.getElementById('countdown').innerHTML += ':' + minutesUntill;
+
+    //Seconds
+    var fractionalMinute = fractionalHour % 60000;
+    var secondsUntill = Math.floor(fractionalMinute / 1000);
+    if(secondsUntill < 10){
+        secondsUntill = '0' + secondsUntill;
+    }
+
+    document.getElementById('countdown').innerHTML += ':' + secondsUntill;
+
+    if(parseInt(daysUntill) < 0){
+        document.getElementById('countdown').innerHTML = "Rocket Already Launched";
+    }
+}
