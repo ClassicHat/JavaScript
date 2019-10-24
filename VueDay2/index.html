@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h1>Vue Tue</h1>
+    <div id="app">
+        <p v-show="cartItem > 0">Cart Items: {{cartItem}}</p>
+        <p>Item Selected: {{itemSelected}}</p>
+        <div v-for="product in productArray">
+            <p @click="updateSelected(product.name)">{{product.name}}</p>
+            <img v-bind:src="product.imgSrc">
+            <p>{{product.name}} ordered: {{product.ordered}}</p>
+            <button v-on:click="orderThis(product)">Order: {{product.name}}</button>
+            <button v-on:click="removeOne(product)" v-show="product.ordered > 0">Remove: {{product.name}}</button>
+        </div>
+    </div>
+
+    <script>
+        //Create an instance of a Vue
+        var app = new Vue(
+            {
+                el: "#app",
+                data:{
+                    cartItem: 0,
+                    itemSelected: "None Selected",
+                    productArray:[
+                        {//Xbox Object
+                            name: "Xbox",
+                            ordered: 0,
+                            imgSrc: "xbox.jpeg"
+                        },
+                        {//Ps4 Object
+                            name: "Ps4",
+                            ordered: 0,
+                            imgSrc: "ps4.jpeg"
+                        }
+                    ]//End product array
+                },//End data
+                methods:{
+                    updateSelected(theProdName){
+                        this.itemSelected = theProdName;
+                    },
+                    orderThis(theProductObj){
+                        theProductObj.ordered++;
+                        this.cartItem++;
+                        this.itemSelected = theProductObj.name;
+                    },
+                    removeOne(theProductObj){
+                        theProductObj.ordered--;
+                        this.cartItem--;
+                        this.itemSelected = `Remove One ${theProductObj.name}`;
+                    }
+                }
+            }//End Vue Object
+        )//End Vue
+    </script>
+</body>
+</html>

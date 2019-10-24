@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h1>Movie List</h1>
+    <div id="app">
+        <div v-for="movie in productArray">
+            <div>
+                <img v-bind:src="movie.imgSrc">
+                <p>{{movie.description}}</p>
+                <p>Stock: {{movie.stock}}</p>
+                <p>Price: {{movie.price}}</p>
+                <button @click="addToCart(movie)" v-show="movie.stock > 0">Add To Cart</button>
+            </div>
+        </div>
+
+        <div v-show="cartSize > 0">
+            <hr>
+            <div v-for="movie in productArray">
+                <div v-show="movie.qty > 0">
+                    <p>{{movie.name}} - {{movie.price}} - {{movie.qty}}</p>
+                    <button @click="removeOne(movie)">Remove One</button>
+                    <button @click="removeAll(movie)">Remove All</button>
+                </div>
+            </div>
+            <div>
+                <p>Subtotal: {{subTotal}}</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue(
+            {
+                el: "#app",
+                data:{
+                    cartSize: 0,
+                    subTotal: 0,
+                    productArray:[
+                        {//Interstellar Object
+                            imgSrc: "interstellar.jpeg",
+                            description: "A team of scientist set out to find a new planet to live on and everything goes wrong.",
+                            stock: 5,
+                            price: 4.99,
+                            name: "Interstellar",
+                            qty: 0
+                        },
+                        {//Starwars Object
+                            imgSrc: "starwars.jpeg",
+                            description: "A girl discovers that she has powers and the empire doesnt like that so they hunt her down.",
+                            stock: 9,
+                            price: 9.99,
+                            name: "Starwars",
+                            qty: 0
+                        },
+                        {//Titanic Object
+                            imgSrc: "titanic.jpeg",
+                            description: "Rose is a young woman who finds a love of her life in a interesting troubled boy of the lower class, what happens next is up to fate.",
+                            stock: 13,
+                            price: 3.99,
+                            name: "Titanic",
+                            qty: 0
+                        }
+                    ]//End ProductArray
+                },//End data
+                methods:{
+                    addToCart(theMovie){
+                        theMovie.stock--;
+                        theMovie.qty++;
+                        this.cartSize++;
+                        this.subTotal += theMovie.price;
+                    },
+                    removeOne(theMovie){
+                        theMovie.stock++;
+                        theMovie.qty--;
+                        this.cartSize--;
+                        this.subTotal -= theMovie.price;
+                    },
+                    removeAll(theMovie){
+                        theMovie.stock += theMovie.qty;
+                        theMovie.qty = 0;
+                        //change the subtotal
+                    }
+                }
+            }//end Vue Object
+        )//End Vue
+    </script>
+</body>
+</html>
