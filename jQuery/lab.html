@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(() => {
+                $.ajax({url: "https://api.themoviedb.org/3/movie/now_playing?api_key=2dc8b3afe9ba013bcb6cee9519e7cdf6&language=en-US&page=1", success: function(result){
+                    
+                    console.log(result)
+                    for(var i = 0; i < 3; i++){
+                        var poster = document.createElement('img');
+                        var h1 = document.createElement('h1');
+                        var p = document.createElement('p');
+
+                        poster.src = `https://image.tmdb.org/t/p/w500/${result.results[i].poster_path}`;
+
+                        h1.innerHTML = result.results[i].title;
+                        h1.className = i;
+                        h1.id = i;
+                        p.innerHTML = result.results[i].overview;
+                        p.className = "p_" + i;
+                        p.id = "p_" + i;
+
+                        $('#movie').append(h1);
+                        $('#movie').append(p);
+                    }
+
+                    $(document).delegate('h1', 'click', function(event){
+                            var thePtag = "#p_" + event.target.id;
+                            $(thePtag).toggle(3000);
+                    })
+                }})
+
+            $('h1').click(function(event){
+                var theId = "#" + event.target.id;
+                $(theId).toggle(3000);
+            })
+        })
+    </script>
+</head>
+<body>
+    <section id="movie"></section>
+</body>
+</html>

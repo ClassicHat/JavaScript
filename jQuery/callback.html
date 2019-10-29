@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            $('#hide').click(function(){
+                $('p').hide(3000, () => {
+                    alert("I will hide the paragraph");
+                });
+                
+            })
+        })
+    </script>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic ratione assumenda quis, fugiat ut deserunt ab aliquam ea pariatur rem. Eius enim dolore officia consectetur nemo at blanditiis, omnis odio.</p>
+    <button id="hide">Hide the paragraph</button>
+</body>
+</html>

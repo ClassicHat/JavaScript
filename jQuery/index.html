@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>jQuery</title>
+    <style>
+        .striped{
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        $(document).ready( () => {
+            $('#btn1').click(() => {
+                alert( $('#second').text());
+            })
+
+            $('#second').click(function(){
+                $(this).toggleClass('striped');
+            })
+
+            $('#btn2').click(() => {
+                $('#p3').text($('#fName').val())
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <h1>jQuery</h1>
+
+    <p>Paragraph one</p>
+    <p id="second">Paragraph two</p>
+    <button id="btn1">Show Text</button>
+    <hr>
+
+    <input type="text" name="fname" id="fName">
+    <button id="btn2">Input Box Value</button>
+    <p id="p3"></p>
+</body>
+</html>
