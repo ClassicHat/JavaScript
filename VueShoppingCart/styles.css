@@ -1,0 +1,9 @@
+body{
+    margin: auto;
+    display: flex;
+}
+
+.box{
+    flex: 3;
+    background-color: dimgray;
+}
