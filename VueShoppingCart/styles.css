@@ -1,9 +1,22 @@
 body{
-    margin: auto;
     display: flex;
+    text-align: center;
+    background-color: dimgray;
+}
+
+#app{
+    margin: auto;
 }
 
 .box{
-    flex: 3;
-    background-color: dimgray;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.box:nth-child(odd){
+    background-color: lightgreen;
+}
+
+.box:nth-child(even){
+    background-color: lightskyblue;
 }

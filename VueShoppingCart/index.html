@@ -9,29 +9,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Movie List</h1>
+   
     <div id="app">
-        <div v-for="movie in productArray">
-            <div class="box">
-                <img v-bind:src="movie.imgSrc">
-                <p>{{movie.description}}</p>
-                <p>Stock: {{movie.stock}}</p>
-                <p>Price: {{movie.price}}</p>
-                <button @click="addToCart(movie)" v-show="movie.stock > 0">Add To Cart</button>
-            </div>
+         <h1>Movie List</h1>
+         <hr>
+        <div v-for="movie in productArray" class="box">
+            <img v-bind:src="movie.imgSrc">
+            <p>{{movie.description}}</p>
+            <p>Stock: {{movie.stock}}</p>
+            <p>Price: {{"$" + movie.price.toFixed(2)}}</p>
+            <button @click="addToCart(movie)" v-show="movie.stock > 0">Add To Cart</button>
         </div>
 
         <div v-show="cartSize > 0">
+            <h3>Cart Items</h3>
+            <hr>
             <div v-for="movie in productArray">
                 <div v-show="movie.qty > 0">
-                    <p>{{movie.name}} - {{movie.price}} - {{movie.qty}}</p>
+                    <p>Movie Name: {{movie.name}} - Price: {{"$" + movie.price.toFixed(2)}} - Quantity: {{movie.qty}}
                     <button @click="removeOne(movie)">Remove One</button>
                     <button @click="removeAll(movie)">Remove All</button>
+                    </p>
+                    
                     <hr>
                 </div>
             </div>
             <div>
-                <p>Subtotal: {{subTotal}}</p>
+                <p>Subtotal: {{"$" + subTotal.toFixed(2)}}</p>
             </div>
         </div>
     </div>
@@ -48,7 +52,7 @@
                             imgSrc: "interstellar.jpeg",
                             description: "A team of scientist set out to find a new planet to live on and everything goes wrong.",
                             stock: 5,
-                            price: 4.99,
+                            price: 7.00,
                             name: "Interstellar",
                             qty: 0
                         },
@@ -56,7 +60,7 @@
                             imgSrc: "starwars.jpeg",
                             description: "A girl discovers that she has powers and the empire doesnt like that so they hunt her down.",
                             stock: 9,
-                            price: 9.99,
+                            price: 10.00,
                             name: "Starwars",
                             qty: 0
                         },
@@ -64,7 +68,7 @@
                             imgSrc: "titanic.jpeg",
                             description: "Rose is a young woman who finds a love of her life in a interesting troubled boy of the lower class, what happens next is up to fate.",
                             stock: 13,
-                            price: 3.99,
+                            price: 5.00,
                             name: "Titanic",
                             qty: 0
                         }
@@ -85,10 +89,11 @@
                     },
                     removeAll(theMovie){
                         theMovie.stock += theMovie.qty;
+                        this.subTotal -= (theMovie.price * theMovie.qty);
+                        this.cartSize -= theMovie.qty;
                         theMovie.qty = 0;
-                        //change the subtotal
                     }
-                }
+                }//End Methods
             }//end Vue Object
         )//End Vue
     </script>
