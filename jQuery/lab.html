@@ -11,12 +11,12 @@
                 $.ajax({url: "https://api.themoviedb.org/3/movie/now_playing?api_key=2dc8b3afe9ba013bcb6cee9519e7cdf6&language=en-US&page=1", success: function(result){
                     
                     console.log(result)
-                    for(var i = 0; i < 3; i++){
+                    for(var i = 0; i < 10; i++){
                         var poster = document.createElement('img');
                         var h1 = document.createElement('h1');
                         var p = document.createElement('p');
 
-                        poster.src = `https://image.tmdb.org/t/p/w500/${result.results[i].poster_path}`;
+                        poster.src = `https://image.tmdb.org/t/p/w200${result.results[i].poster_path}`;
 
                         h1.innerHTML = result.results[i].title;
                         h1.className = i;
@@ -25,6 +25,7 @@
                         p.className = "p_" + i;
                         p.id = "p_" + i;
 
+                        $('#movie').append(poster);
                         $('#movie').append(h1);
                         $('#movie').append(p);
                     }
